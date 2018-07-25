@@ -9,4 +9,7 @@ setup(name='tensorflow-pid',
       description='Tensorflow implementation of PID optimization',
       author='Ryohei Machida',
       author_email='machida_mn@complex.ist.hokudai.ac.jp',
-      packages=find_packages())
+      packages=find_packages(),
+      install_requires=[
+          'tensorflow'
+      ])
