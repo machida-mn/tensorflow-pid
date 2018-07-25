@@ -25,7 +25,7 @@ class PIDOptimizer(optimizer.Optimizer):
     ...         labels=labels, logits=logits
     ...     )
     ... )
-    >>> train_op = tensorflow_pid.PIDOptimizer(learning_rate=0.01, momentum=0.001, r=1.0).minimize(loss)
+    >>> train_op = tensorflow_pid.PIDOptimizer(learning_rate=0.01, momentum=0.001).minimize(loss)
     """
 
     def __init__(self, learning_rate: float = 0.001, momentum: float = 0.0,
