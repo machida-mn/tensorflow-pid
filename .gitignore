@@ -1,4 +1,6 @@
 /tags
+/cover/
+/.coverage
 
 __pycache__/
 .mypy_cache/

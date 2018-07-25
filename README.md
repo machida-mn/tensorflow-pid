@@ -23,7 +23,7 @@ import tensorflow_pid
 
 loss = .......
 
-train_op = tensorflow_pid.PIDOptimizer(learning_rate=0.01, momentum=0.001).minimize(loss)
+train_op = tensorflow_pid.PIDOptimizer(learning_rate=0.01, kd=0.001).minimize(loss)
 ```
 
 ## Implementation in other frameworks
