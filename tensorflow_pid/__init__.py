@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+"""
+Tensorflow implementation of PID optimization (CVPR 2018).
+See the following paper for detail of algorithm.
+
+    http://www4.comp.polyu.edu.hk/%7Ecslzhang/paper/CVPR18_PID.pdf
+"""
+
 import math
 from tensorflow.python.framework import ops
 from tensorflow.python.ops import control_flow_ops
@@ -7,9 +14,27 @@ from tensorflow.python.training import optimizer
 
 
 class PIDOptimizer(optimizer.Optimizer):
+    """
+    PID Optimizer class.
+    Usage of this class is same as other optimizers (RMSPropOptimizer, AdamOptimizer etc.)
+
+    Example
+    -------
+    >>> loss = tf.reduce_mean(
+    ...     tf.nn.softmax_cross_entropy_with_logits(
+    ...         labels=labels, logits=logits
+    ...     )
+    ... )
+    >>> train_op = tensorflow_pid.PIDOptimizer(learning_rate=0.01, momentum=0.001, r=1.0).minimize(loss)
+    """
+
     def __init__(self, learning_rate: float = 0.001, momentum: float = 0.0,
                  kd: float = None, use_locking: bool = False,
                  name: str = 'PID') -> None:
+        """
+        PID optimizer class constructor.
+        """
+
         super(PIDOptimizer, self).__init__(use_locking, name)
 
         if kd is None:
